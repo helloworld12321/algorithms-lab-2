@@ -1,6 +1,43 @@
+import java.util.*;
+
 class Main {
   public static void main(String[] args) {
-    System.out.println("Hello, World!");
+    // Set up
+    TestInteger[] quicksortArray = randomArray(10_000);
+    TestInteger[] timsortArray =  Arrays.copyOf(quicksortArray, quicksortArray.length);
+
+    // Reset the "number of comparisons" counter.
+    TestInteger.counter = 0;
+    long quicksortStartTime = System.currentTimeMillis();
+    quicksort(quicksortArray, 0, quicksortArray.length - 1);
+    long quicksortEndTime = System.currentTimeMillis();
+
+    long quicksortTimeMillis = quicksortEndTime - quicksortStartTime;
+    long quicksortComparisons = TestInteger.counter;
+
+    TestInteger.counter = 0;
+    long timsortStartTime = System.currentTimeMillis();
+    Arrays.sort(timsortArray);
+    long timsortEndTime = System.currentTimeMillis();
+
+    long timsortTimeMillis = timsortEndTime - timsortStartTime;
+    long timsortComparisons = TestInteger.counter;
+
+    if (isSorted(quicksortArray)) {
+      System.out.println("The quicksort worked!");
+    } else {
+      System.out.println("The quicksort failed :(");
+    }
+
+    System.out.printf(
+      "The quicksort ran in %d milliseconds and took %d comparisons\n",
+      quicksortTimeMillis,
+      quicksortComparisons);
+
+    System.out.printf(
+      "The timsort ran in %d milliseconds and took %d comparisons\n",
+      timsortTimeMillis,
+      timsortComparisons);
   }
 
   /**
@@ -9,7 +46,11 @@ class Main {
    * (This function sorts a sub-range of the array from p up to and including r.)
    */
   public static void quicksort(TestInteger[] array, int p, int r) {
-
+    if (p < r) {
+      int pivotLocation = partition(array, p, r);
+      quicksort(array, p, pivotLocation-1);
+      quicksort(array, pivotLocation+1, r);
+    }
   }
 
   /**
@@ -23,9 +64,8 @@ class Main {
    * Return the new index of the pivot element.
    */
   public static int partition(TestInteger[] array, int p, int r) {
-    TestInteger pivot = array[r]
-
-    int i = p-1
+    TestInteger pivot = array[r];
+    int i = p-1;
     int j;
     for(j = p; j <= r-1; j++){
       if(array[j].compareTo(pivot) <= 0){
@@ -34,10 +74,10 @@ class Main {
         array[i] = array[j];
         array[j] = temp;
       }
-      temp = array[i+1];
-      array[i+1]=array[r];
-      array[r]=temp;
     }
+    TestInteger temp = array[i+1];
+    array[i+1]=array[r];
+    array[r]=temp;
     return i+1;
   }
 
@@ -52,4 +92,38 @@ class Main {
     }
     return true;
   }
+
+  /**
+   * Generate an array of a specified length whose elements are
+   * random TestIntegers between one and a million (inclusive).
+   */
+  public static TestInteger[] randomArray(int length) {
+    TestInteger[] result = new TestInteger[length];
+    for (int i = 0; i < length; i++) {
+      result[i] = new TestInteger(getRandomIntInclusive(1, 1_000_000));
+    }
+    return result;
+  }
+
+  /**
+   * Return a random integer in the range { min, min+1, ..., max }.
+   *
+   * Source:
+   * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+   */
+  public static int getRandomIntInclusive(int min, int max) {
+    return (int)Math.floor(Math.random() * (max - min + 1) + min);
+  }
+
+  /**
+   * Generate an array of the length given, starting at startingValue
+   * and increasing by one.
+   */
+   public static TestInteger[] orderedArray(int length, int startingValue) {
+     TestInteger[] result = new TestInteger[length];
+     for (int i = 0; i < length; i++) {
+       result[i] = new TestInteger(i + startingValue);
+     }
+     return result;
+   }
 }
