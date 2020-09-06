@@ -2,8 +2,65 @@ import java.util.*;
 
 class Main {
   public static void main(String[] args) {
+    System.out.println("=== Testing sorting an entirely random array:");
+    for (int trial = 1; trial <= 5; trial++) {
+      System.out.println("Trial " + trial + ":");
+      testSorting(randomArray(10_000));
+    }
+
+    System.out.println("=== Testing sorting an already-sorted array:");
+    for (int trial = 1; trial <= 5; trial++) {
+      System.out.println("Trial " + trial + ":");
+      testSorting(orderedArray(10_000, 1));
+    }
+
+    System.out.println("=== Testing sorting a multiple-sorted array (10 sorted sections):");
+    for (int trial = 1; trial <= 5; trial++) {
+      System.out.println("Trial " + trial + ":");
+      TestInteger[] multipleSortedArray10 = new TestInteger[10_000];
+      for (int i = 0; i < 10; i++) {
+        TestInteger[] sortedSubarray =
+          orderedArray(1_000, getRandomIntInclusive(1, 1_000_000));
+        System.arraycopy(
+          // Copy from the subarray (starting at the beginning),
+          sortedSubarray,
+          0,
+          // into the destination array, starting at the ith section,
+          multipleSortedArray10,
+          i * 1_000,
+          // all 1_000 elements of the subarray.
+          1_000);
+      }
+      testSorting(multipleSortedArray10);
+    }
+
+    System.out.println("=== Testing sorting a mutliple-sorted array (100 sorted sections):");
+    for (int trial = 1; trial <= 5; trial++) {
+      System.out.println("Trial " + trial + ":");
+      TestInteger[] multipleSortedArray100 = new TestInteger[10_000];
+      for (int i = 0; i < 100; i++) {
+        TestInteger[] sortedSubarray =
+          orderedArray(100, getRandomIntInclusive(1, 1_000_000));
+        System.arraycopy(
+          // Copy from the subarray (starting at the beginning),
+          sortedSubarray,
+          0,
+          // into the destination array, starting at the ith section,
+          multipleSortedArray100,
+          i * 100,
+          // all 100 elements of the subarray.
+          100);
+      }
+      testSorting(multipleSortedArray100);
+    }
+  }
+
+  /**
+   * See whether quicksort or timsort is faster at sorting a given array.
+   */
+  public static void testSorting(TestInteger[] arrayToSort) {
     // Set up
-    TestInteger[] quicksortArray = randomArray(10_000);
+    TestInteger[] quicksortArray = Arrays.copyOf(arrayToSort, arrayToSort.length);
     TestInteger[] timsortArray =  Arrays.copyOf(quicksortArray, quicksortArray.length);
 
     // Reset the "number of comparisons" counter.

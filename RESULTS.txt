@@ -1,0 +1,88 @@
+=== Testing sorting an entirely random array:
+Trial 1:
+The quicksort worked!
+The quicksort ran in 5 milliseconds and took 146323 comparisons
+The timsort ran in 10 milliseconds and took 120310 comparisons
+Trial 2:
+The quicksort worked!
+The quicksort ran in 2 milliseconds and took 155778 comparisons
+The timsort ran in 3 milliseconds and took 120394 comparisons
+Trial 3:
+The quicksort worked!
+The quicksort ran in 1 milliseconds and took 163369 comparisons
+The timsort ran in 3 milliseconds and took 120410 comparisons
+Trial 4:
+The quicksort worked!
+The quicksort ran in 1 milliseconds and took 150218 comparisons
+The timsort ran in 4 milliseconds and took 120360 comparisons
+Trial 5:
+The quicksort worked!
+The quicksort ran in 1 milliseconds and took 156149 comparisons
+The timsort ran in 5 milliseconds and took 120396 comparisons
+
+=== Testing sorting an already-sorted array:
+Trial 1:
+The quicksort worked!
+The quicksort ran in 214 milliseconds and took 49995000 comparisons
+The timsort ran in 0 milliseconds and took 9999 comparisons
+Trial 2:
+The quicksort worked!
+The quicksort ran in 208 milliseconds and took 49995000 comparisons
+The timsort ran in 0 milliseconds and took 9999 comparisons
+Trial 3:
+The quicksort worked!
+The quicksort ran in 233 milliseconds and took 49995000 comparisons
+The timsort ran in 0 milliseconds and took 9999 comparisons
+Trial 4:
+The quicksort worked!
+The quicksort ran in 208 milliseconds and took 49995000 comparisons
+The timsort ran in 0 milliseconds and took 9999 comparisons
+Trial 5:
+The quicksort worked!
+The quicksort ran in 210 milliseconds and took 49995000 comparisons
+The timsort ran in 0 milliseconds and took 9999 comparisons
+
+=== Testing sorting a multiple-sorted array (10 sorted sections):
+Trial 1:
+The quicksort worked!
+The quicksort ran in 78 milliseconds and took 19003000 comparisons
+The timsort ran in 0 milliseconds and took 10248 comparisons
+Trial 2:
+The quicksort worked!
+The quicksort ran in 133 milliseconds and took 29000000 comparisons
+The timsort ran in 0 milliseconds and took 10209 comparisons
+Trial 3:
+The quicksort worked!
+The quicksort ran in 70 milliseconds and took 17004000 comparisons
+The timsort ran in 0 milliseconds and took 10327 comparisons
+Trial 4:
+The quicksort worked!
+The quicksort ran in 82 milliseconds and took 16003000 comparisons
+The timsort ran in 0 milliseconds and took 10282 comparisons
+Trial 5:
+The quicksort worked!
+The quicksort ran in 78 milliseconds and took 18005000 comparisons
+The timsort ran in 1 milliseconds and took 10344 comparisons
+
+=== Testing sorting a mutliple-sorted array (100 sorted sections):
+Trial 1:
+The quicksort worked!
+The quicksort ran in 19 milliseconds and took 4254252 comparisons
+The timsort ran in 0 milliseconds and took 14577 comparisons
+Trial 2:
+The quicksort worked!
+The quicksort ran in 20 milliseconds and took 4236500 comparisons
+The timsort ran in 0 milliseconds and took 14676 comparisons
+Trial 3:
+The quicksort worked!
+The quicksort ran in 13 milliseconds and took 3022600 comparisons
+The timsort ran in 0 milliseconds and took 14447 comparisons
+Trial 4:
+The quicksort worked!
+The quicksort ran in 20 milliseconds and took 4608400 comparisons
+The timsort ran in 0 milliseconds and took 14448 comparisons
+Trial 5:
+The quicksort worked!
+The quicksort ran in 24 milliseconds and took 4629600 comparisons
+The timsort ran in 0 milliseconds and too
+k 14470 comparisons
