@@ -1,6 +1,9 @@
 import java.util.*;
 
 class Main {
+  /**
+   * @author Tyler Rowland, Joe Walbran
+   */
   public static void main(String[] args) {
     System.out.println("=== Testing sorting an entirely random array:");
     for (int trial = 1; trial <= 5; trial++) {
@@ -57,6 +60,8 @@ class Main {
 
   /**
    * See whether quicksort or timsort is faster at sorting a given array.
+   *
+   * @author Equal contributions from all partners
    */
   public static void testSorting(TestInteger[] arrayToSort) {
     // Set up
@@ -101,6 +106,8 @@ class Main {
    * Sort an array of TestIntegers using the quicksort algorithm.
    *
    * (This function sorts a sub-range of the array from p up to and including r.)
+   *
+   * @author Equal contributions from all partners.
    */
   public static void quicksort(TestInteger[] array, int p, int r) {
     if (p < r) {
@@ -119,6 +126,8 @@ class Main {
    * bigger elements.
    *
    * Return the new index of the pivot element.
+   *
+   * @author Contributions from all partners, especially Tyler Rowland
    */
   public static int partition(TestInteger[] array, int p, int r) {
     TestInteger pivot = array[r];
@@ -140,6 +149,8 @@ class Main {
 
   /**
    * Takes a TestInteger[] and returns true if sorted and false if not.
+   *
+   * @author Elk Oswood
    */
   public static boolean isSorted(TestInteger[] array) {
     for (int i = 0; i < array.length - 1; i++) {
@@ -153,6 +164,8 @@ class Main {
   /**
    * Generate an array of a specified length whose elements are
    * random TestIntegers between one and a million (inclusive).
+   *
+   * @author Equal contributions from all partners
    */
   public static TestInteger[] randomArray(int length) {
     TestInteger[] result = new TestInteger[length];
@@ -167,6 +180,8 @@ class Main {
    *
    * Source:
    * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+   *
+   * @author Equal contributions from all partners
    */
   public static int getRandomIntInclusive(int min, int max) {
     return (int)Math.floor(Math.random() * (max - min + 1) + min);
@@ -175,6 +190,8 @@ class Main {
   /**
    * Generate an array of the length given, starting at startingValue
    * and increasing by one.
+   *
+   * @author Elk Oswood
    */
    public static TestInteger[] orderedArray(int length, int startingValue) {
      TestInteger[] result = new TestInteger[length];
